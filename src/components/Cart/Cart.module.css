@@ -1,0 +1,19 @@
+.cart {
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid;
+  border-color: yellow;
+  background: burlywood;
+  border-radius: 20%;
+  margin-bottom: 10px;
+}
+h5 {
+  text-align: center;
+}
+.price {
+  text-align: center;
+}
+.description {
+  padding-left: 20px;
+}
