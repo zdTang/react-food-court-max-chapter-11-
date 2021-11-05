@@ -9,10 +9,13 @@ function App() {
   const showCart = () => {
     setIsShowCart(true);
   };
+  const hideCart = () => {
+    setIsShowCart(false);
+  };
 
   // "value" is key word, must use it.
   return (
-    <CartContext.Provider value={{ toggle: showCart }}>
+    <CartContext.Provider value={{ showCart, hideCart }}>
       <Fragment>
         <Header />
         <main>

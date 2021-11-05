@@ -7,7 +7,7 @@ export const HeaderCartButton = () => {
   const ctx = useContext(CartContext);
 
   const clickHandler = () => {
-    ctx.toggle();
+    ctx.showCart();
   };
 
   return (
