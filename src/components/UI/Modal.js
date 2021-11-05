@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./Modal.module.css";
-import ReactDOM from "react-dom";
 import reactDom from "react-dom";
 
 const Backdrop = () => {
@@ -15,7 +14,7 @@ const Overlay = (props) => {
   );
 };
 
-const mountPoint = document.getElementById("overlay_cart");
+const mountPoint = document.getElementById("overlay");
 
 const Modal = (props) => {
   return (
