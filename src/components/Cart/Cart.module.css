@@ -2,6 +2,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  color: white;
 }
 
 .total {
@@ -11,6 +12,7 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin: 1rem 0;
+  color: white;
 }
 
 .actions {
@@ -41,4 +43,27 @@
 .actions .button {
   background-color: #8a2b06;
   color: white;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 20%;
+  width: 60%;
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid yellow;
+  border-radius: 5px;
+  padding: 30px;
+  background-color: seagreen;
 }
