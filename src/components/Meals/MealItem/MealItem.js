@@ -10,12 +10,14 @@ const MealItem = (props) => {
 
   const onAddToCartHandler = (amount) => {
     console.log("mealItem", amount);
-    CartCtx.addItem({
+    let item = {
       id: props.meal.id,
       name: props.meal.name,
       amount: amount,
       price: props.meal.price,
-    });
+    };
+    console.log("Item", item);
+    CartCtx.addItem(item);
   };
   return (
     <li className={classes.meal}>
