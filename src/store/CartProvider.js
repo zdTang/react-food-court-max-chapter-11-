@@ -16,9 +16,32 @@ const cartReducer = (state, action) => {
     // This method does not change the existing arrays,
     // but instead returns a new array
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
-    const updatedItems = state.items.concat(action.item);
+    // At this moment, the item will be added to the [] whatever it was already existed or not
+    // We don't like that, we prefer {name, amount} format
+
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
+
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.item.id
+    );
+    const existingCartItem = state.items[existingCartItemIndex];
+
+    let updatedItems;
+
+    if (existingCartItem) {
+      const updatedItem = {
+        ...existingCartItem,
+        amount: existingCartItem.amount + action.item.amount,
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    } else {
+      updatedItems = state.items.concat(action.item);
+    }
+
+    ///const updatedItems = state.items.concat(action.item);
+
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
