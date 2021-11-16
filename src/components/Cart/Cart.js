@@ -7,14 +7,20 @@ import CartItem from "./CartItem";
 function Cart(props) {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  let totalAmount = cartCtx.totalAmount.toFixed(2);
+  // eliminate display "-0" on the Cart
+  let displayAmount = totalAmount == -0 ? 0 : totalAmount;
+
+  totalAmount = `$${displayAmount}`;
   const hasItems = cartCtx.items.length > 0;
   const cartItemRemoveHandler = (id) => {
     console.log(id);
+    cartCtx.removeItem(id);
   };
 
   const addOnItemHandler = (item) => {
     console.log(item);
+    cartCtx.addItem(item);
   };
 
   const cartItems = (

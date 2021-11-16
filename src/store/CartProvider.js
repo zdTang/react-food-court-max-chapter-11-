@@ -47,6 +47,29 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  if (action.type === "REMOVE") {
+    // find the exist item from the cart
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    );
+    const existingItem = state.items[existingCartItemIndex];
+    const updatedTotalAmount = state.totalAmount - existingItem.price; // update total amount
+    let updatedItems;
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter((item) => item.id !== action.id); // remove the item
+    } else {
+      const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    }
+
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
+  }
+
   return defaultCartState;
 };
 // use Reducer:   [state,dispatch]=useReducer(Reducer,defaultState)
@@ -69,8 +92,8 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "ADD", item });
   };
 
-  const removeItemToCartHandler = (item) => {
-    dispatchCartAction({ type: "REMOVE", item });
+  const removeItemToCartHandler = (id) => {
+    dispatchCartAction({ type: "REMOVE", id });
   };
 
   // this is the data shared with context
