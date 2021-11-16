@@ -10,9 +10,11 @@ export const HeaderCartButton = (props) => {
     return curNumber + item.amount;
   }, 0);
 
+  const btnClasses = `${classes.button} ${classes.bump}`;
+
   // the HeadCartButton will be re-evaluated when cartCtx is updated
   return (
-    <button className={classes.button} onClick={props.onShowCart}>
+    <button className={btnClasses} onClick={props.onShowCart}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
