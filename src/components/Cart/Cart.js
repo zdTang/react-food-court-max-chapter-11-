@@ -9,7 +9,7 @@ function Cart(props) {
 
   let totalAmount = cartCtx.totalAmount.toFixed(2);
   // eliminate display "-0" on the Cart
-  let displayAmount = totalAmount == -0 ? 0 : totalAmount;
+  let displayAmount = totalAmount === -0 ? 0 : totalAmount;
 
   totalAmount = `$${displayAmount}`;
   const hasItems = cartCtx.items.length > 0;
