@@ -50,7 +50,11 @@ function Cart(props) {
         <button className={classes["button--alt"]} onClick={props.onClose}>
           Close
         </button>
-        {hasItems && <button className={classes.button}>Order</button>}
+        {hasItems && (
+          <button onClick={props.orderHandler} className={classes.button}>
+            Order
+          </button>
+        )}
       </div>
     </Modal>
   );

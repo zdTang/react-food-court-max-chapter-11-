@@ -34,10 +34,12 @@ const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [Loading, setLoading] = useState(false);
   const [Error, setIsError] = useState(null);
+
   useEffect(fetchMeals, []);
 
   async function fetchMeals() {
     setLoading(true);
+    console.log("fetchMeal is loading");
     try {
       let response = await fetch(
         "https://react-http-69ae2-default-rtdb.firebaseio.com/meals.json"
