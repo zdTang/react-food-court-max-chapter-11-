@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import Card from '../UI/Card';
-import MealItem from './MealItem/MealItem';
-import classes from './AvailableMeals.module.css';
+import Card from "../UI/Card";
+import MealItem from "./MealItem/MealItem";
+import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -12,11 +12,11 @@ const AvailableMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/meals.json'
+        "https://react-http-69ae2-default-rtdb.firebaseio.com/meals.json"
       );
 
       if (!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error("Something went wrong!");
       }
 
       const responseData = await response.json();
