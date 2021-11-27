@@ -1,8 +1,6 @@
-import React from "react";
-import classes from "./Input.module.css";
+import React from 'react';
 
-// As we use ref with the customized "input", the native "ref" doesn't work
-// But we can use this format to forward "ref" into the customized component
+import classes from './Input.module.css';
 
 const Input = React.forwardRef((props, ref) => {
   return (
